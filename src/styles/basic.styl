@@ -1,0 +1,86 @@
+@import 'reset.css'
+
+san-marino   = #446cb3
+madison      = #2c3e50
+humming-bird = #c5eff7
+monarch      = #f77a26
+
+.basic
+  font-family 'Open Sans', sans-serif
+  font-size 1rem
+
+  .hero
+    background-size cover
+    background-position top center
+    min-height 400px
+    display flex
+    align-items flex-end
+    justify-content center
+
+    > div
+      max-width 1000px
+      flex 0 1 auto
+      text-align center
+      padding 0 0 2rem
+
+      > h1
+        color white
+        font-size 2em
+        text-shadow 0 0 10px black
+        font-weight 600
+
+      > p
+        color humming-bird
+        text-transform uppercase
+        font-size .9em
+        margin 1rem 0
+        text-shadow 0 0 10px black
+        font-weight 600
+
+      > a
+        display inline-block
+        border-radius 5px
+        padding 1em 1.5em
+        color white
+        background-color monarch
+        text-decoration none
+
+  .list
+    background white
+    display flex
+    justify-content center
+
+    > ul
+      flex 0 1 auto
+      max-width 1000px
+      width 100%
+      display flex
+      flex-flow row
+      counter-reset list-counter
+
+      li
+        flex 1
+        padding calc(50px + 2rem) 1rem 1rem
+        position relative
+        text-align center
+        font-size .9em
+        line-height 1.5em
+
+        & + li
+          margin-left 1rem
+
+        &:before
+          content counter(list-counter)
+          counter-increment list-counter
+          display block
+          position absolute
+          border-radius 50%
+          background madison
+          color white
+          top 1rem
+          left 50%
+          margin-left -25px
+          height 50px
+          width 50px
+          font-size 1.2em
+          line-height 50px
