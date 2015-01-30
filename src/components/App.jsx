@@ -1,17 +1,15 @@
-var React     = require('react');
-var Router    = require('react-router-component');
-var _         = require('lodash');
-var Locations = Router.Locations;
-var Template  = require('./Template.jsx');
-var routes    = require('../../routes.js');
-
-var NotFoundPage    = require('./pages/NotFoundPage.jsx');
+var React        = require('react');
+var Router       = require('react-router-component');
+var _            = require('lodash');
+var Locations    = Router.Locations;
+var Template     = require('./Template.jsx');
+var routes       = require('../../routes.js');
+var NotFoundPage = require('./pages/NotFoundPage.jsx');
 
 var App = React.createClass({
   getDefaultProps: function() {
     return {
-      routes:         routes,
-      assetManifest:  {}
+      routes: routes
     };
   },
 
@@ -36,7 +34,7 @@ var App = React.createClass({
 
   render: function() {
     return (
-      <Template assetManifest={this.props.assetManifest}>
+      <Template rev={this.props.rev}>
         <Locations path={this.props.path}>{this.getLocations()}</Locations>
       </Template>
     );

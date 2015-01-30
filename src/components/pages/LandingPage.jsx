@@ -15,10 +15,12 @@ var LandingPage = React.createClass({
   },
 
   getInitialStateAsync: function(cb) {
-    // structure this so I don't have to worry about CORS
-    request.get('localhost:8000/landing-pages/' + this.props.name, function(resp) {
-      cb(null, resp.body);
-    });
+    var path = '/landing-pages/' + this.props.name + '.json';
+
+    request
+      .get('http://localhost:8000' + path)
+      .withCredentials()
+      .end(function(resp) { cb(null, resp.body); });
   },
 
   render: function() {

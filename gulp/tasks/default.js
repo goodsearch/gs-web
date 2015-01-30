@@ -1,2 +1,6 @@
 var gulp = require('gulp');
-gulp.task('default', ['stylus', 'images', 'watch', 'nodemon']);
+var runSequence = require('run-sequence');
+
+gulp.task('default', function(cb) {
+  runSequence('build:development', 'nodemon', cb);
+});

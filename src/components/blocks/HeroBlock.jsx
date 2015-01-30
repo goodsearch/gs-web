@@ -1,17 +1,9 @@
 var React = require('react');
 
-var exampleData = {
-  "bgImageSrc"  : "/images/hero.png",
-  "heading"     : "I'm a Heading!",
-  "headingCopy" : "More about my Hero here...",
-  "ctaCopy"     : "Click me!!",
-  "ctaTarget"   : "http://www.example.com"
-}
-
 var HeroBlock = React.createClass({
   getDefaultProps: function() {
     return {
-      classNames: ['admin', 'block', 'hero']
+      classNames: ['block', 'hero']
     };
   },
 

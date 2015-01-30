@@ -1,4 +1,5 @@
 var React = require('react');
+var assets = require('../../util/assets.js')();
 
 module.exports = Template = React.createClass({
   getDefaultProps: function() {
@@ -7,8 +8,12 @@ module.exports = Template = React.createClass({
     };
   },
 
+  getManifestPath: function() {
+    return '/manifest-' + this.props.rev + '.js';
+  },
+
   getAssetPath: function(assetName) {
-    return '/assets/' + this.props.assetManifest[assetName];
+    return '/' + assets[assetName];
   },
 
   render: function() {
@@ -17,6 +22,7 @@ module.exports = Template = React.createClass({
         <head lang="en">
           <meta charSet="utf-8" />
           <link rel="stylesheet" href={this.getAssetPath(this.props.theme)} />
+          <script src={this.getManifestPath()}></script>
         </head>
         <body>
           <div id="main">{this.props.children}</div>

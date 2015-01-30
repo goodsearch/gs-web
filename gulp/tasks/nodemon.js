@@ -5,6 +5,6 @@ var config = require('../config').nodemon;
 gulp.task('nodemon', function() {
   return nodemon({
     script:   config.script,
-    execMap:  { js: 'node --harmony' }
+    execMap:  { js: 'npm start' }
   });
 });
