@@ -1,10 +1,11 @@
 var React = require('react');
-var App   = React.createFactory(require('./components/App.jsx'));
+
+var LandingPage = React.createFactory(
+  require('./components/pages/LandingPage.jsx')
+);
 
 if (typeof window !== 'undefined') {
   window.onload = function() {
-    React.render(App({
-      rev: window.assetManifest.rev
-    }), document);
+    React.render(LandingPage(window.bootstrapProps), document);
   };
 }

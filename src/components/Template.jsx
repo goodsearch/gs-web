@@ -16,6 +16,15 @@ module.exports = Template = React.createClass({
     return '/' + assets[assetName];
   },
 
+  getRenderedState: function() {
+    var bootstrapProps = {
+      rev:   this.props.rev,
+      page:  this.props.page
+    };
+
+    return 'bootstrapProps = ' + JSON.stringify(bootstrapProps) + ';';
+  },
+
   render: function() {
     return (
       <html>
@@ -23,6 +32,7 @@ module.exports = Template = React.createClass({
           <meta charSet="utf-8" />
           <link rel="stylesheet" href={this.getAssetPath(this.props.theme)} />
           <script src={this.getManifestPath()}></script>
+          <script dangerouslySetInnerHTML={{__html: this.getRenderedState()}}></script>
         </head>
         <body>
           <div id="main">{this.props.children}</div>

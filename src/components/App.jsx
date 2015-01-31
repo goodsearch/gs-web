@@ -17,12 +17,14 @@ var App = React.createClass({
     var locations = [];
 
     _.forOwn(this.props.routes, function(element, route) {
+      element = React.createFactory(element);
+
       locations.push(React.createElement(Router.Location, {
         key:      route,
         path:     route,
-        handler:  element
+        handler:  element({ pageBody: this.props.pageBody })
       }));
-    });
+    }.bind(this));
 
     locations.push(React.createElement(Router.NotFound, {
       handler:  NotFoundPage,
