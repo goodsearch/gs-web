@@ -9,7 +9,7 @@ var HeroBlock = React.createClass({
 
   render: function() {
     return (
-      <div className={this.props.classNames.join(' ')} style={ { backgroundImage: "url(" + this.props.data.bgImageSrc + ")" } }>
+      <div className={this.props.classNames.join(' ')} style={ { backgroundImage: "url(/" + this.props.data.bgImageSrc + ")" } }>
         <div>
           <h1>{this.props.data.heading}</h1>
           <p>{this.props.data.headingCopy}</p>
