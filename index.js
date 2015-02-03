@@ -10,6 +10,10 @@ var React   = require('react');
 var _       = require('lodash');
 var server  = koa();
 
+var StaticPage = React.createFactory(
+  require('./src/components/pages/StaticPage.jsx')
+);
+
 var LandingPage = React.createFactory(
   require('./src/components/pages/LandingPage.jsx')
 );
@@ -25,9 +29,9 @@ AppRouter.get('/landing-pages/:name', function *() {
   var apiResponse = yield request.get(path).end()
 
   if (apiResponse.body.page) {
-    this.body = React.renderToString(LandingPage({
-      page:  apiResponse.body.page,
-      rev:   process.env.GIT_REV
+    this.body = React.renderToString(StaticPage({
+      page:       apiResponse.body.page,
+      pageClass:  LandingPage
     }));
   }
 });

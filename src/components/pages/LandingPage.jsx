@@ -1,7 +1,6 @@
 var React         = require('react');
 var _             = require('lodash');
 var blockSelector = require('../blocks/blockSelector.js');
-var Template      = require('../Template.jsx');
 
 var LandingPage = React.createClass({
   getDefaultProps: function() {
@@ -23,9 +22,7 @@ var LandingPage = React.createClass({
     }.bind(this));
 
     return (
-      <Template rev={this.props.rev} page={this.props.page}>
-        <div className={this.props.themeName}>{blocks}</div>
-      </Template>
+      <div className={this.props.themeName}>{blocks}</div>
     );
   }
 });

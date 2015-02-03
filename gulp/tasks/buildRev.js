@@ -20,32 +20,6 @@ var removeCopies = function() {
   });
 };
 
-var fingerprintManifest = function() {
-  var emit = function(manifestFile, enc, cb) {
-    var tself = this;
-
-    gitRev.long(function(rev) {
-      var file = new gutil.File({
-        base: path.join(__dirname, 'build/assets'),
-        cwd:  __dirname,
-        path: path.join(__dirname, 'build/assets/manifest-' + rev + '.js')
-      });
-
-      var data = _.merge(JSON.parse(manifestFile.contents), { rev: rev });
-
-      file.contents = new Buffer(
-        "var assetManifest = " + JSON.stringify(data) + ";" +
-        "if (typeof window === 'undefined') module.exports = assetManifest;"
-      );
-
-      tself.push(file);
-      return cb();
-    });
-  };
-
-  return through.obj(emit);
-};
-
 gulp.task('build:rev:copy', function() {
   return gulp.src([
       './build/js/*.js',
@@ -60,7 +34,6 @@ gulp.task('build:rev', ['build:rev:copy'], function() {
     .pipe(rev())
     .pipe(gulp.dest('./build/assets'))
     .pipe(removeCopies())
-    .pipe(rev.manifest())
-    .pipe(fingerprintManifest())
+    .pipe(rev.manifest('manifest.json'))
     .pipe(gulp.dest('./build/assets'));
 });
