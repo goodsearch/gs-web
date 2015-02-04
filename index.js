@@ -24,7 +24,7 @@ server.use(static('build/assets'));
 
 var AppRouter = new router();
 
-AppRouter.get('/landing-pages/:name', function *() {
+AppRouter.get('/lp/:name', function *() {
   var path = apiUrl + '/landing-pages/' + this.params.name + '.json';
   var apiResponse = yield request.get(path).end()
 
@@ -34,10 +34,6 @@ AppRouter.get('/landing-pages/:name', function *() {
       pageClass:  LandingPage
     }));
   }
-});
-
-AppRouter.get('/pablo', function *() {
-  this.body = this.headers;
 });
 
 server.use(mount('/', AppRouter.middleware()));
