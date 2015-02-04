@@ -18,7 +18,7 @@ var LandingPage = React.createFactory(
   require('./src/components/pages/LandingPage.jsx')
 );
 
-var apiUrl = 'http://localhost:8000'
+var apiUrl = process.env.API_URL || 'http://localhost:8000';
 
 server.use(static('build/assets'));
 
