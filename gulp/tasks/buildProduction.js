@@ -1,5 +1,7 @@
-var gulp = require('gulp');
+var gulp        = require('gulp');
 var runSequence = require('run-sequence');
+
+require('./buildClean.js');
 
 gulp.task('build:production', function(cb) {
   runSequence(
