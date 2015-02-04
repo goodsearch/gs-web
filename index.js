@@ -36,5 +36,9 @@ AppRouter.get('/landing-pages/:name', function *() {
   }
 });
 
+AppRouter.get('/pablo', function *() {
+  this.body = this.headers;
+});
+
 server.use(mount('/', AppRouter.middleware()));
 server.listen(process.env.PORT || 8001);
