@@ -9,7 +9,7 @@ module.exports = Template = React.createClass({
   },
 
   getAssetPath: function(assetName) {
-    return '/' + assets[assetName];
+    return assets[assetName];
   },
 
   render: function() {
