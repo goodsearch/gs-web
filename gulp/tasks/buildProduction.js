@@ -1,10 +1,13 @@
-// prerequisites
-require('./stylus.js');
-require('./images.js');
-require('./buildProductionJS.js');
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
-require('gulp').task('build:production', [
-  'stylus',
-  'images',
-  'build:production:js'
-]);
+gulp.task('build:production', function(cb) {
+  runSequence(
+    'build:clean',
+    [ 'build:production:js',
+      'build:production:images',
+      'build:production:css' ],
+    'build:rev',
+    cb
+  );
+});
