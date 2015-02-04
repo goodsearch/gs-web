@@ -16,6 +16,7 @@ module.exports = Template = React.createClass({
     return (
       <html>
         <head lang="en">
+          <meta name="robots" content="noindex" />
           <meta charSet="utf-8" />
           <link rel="stylesheet" href={this.getAssetPath(this.props.theme)} />
         </head>
