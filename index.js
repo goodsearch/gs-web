@@ -1,24 +1,22 @@
 require('node-jsx').install({ extension: '.jsx' });
 
-var koa     = require('koa');
+var koa      = require('koa');
 var thunkify = require('thunkify');
-var static  = require('koa-static');
-var router  = require('koa-router');
-var mount   = require('koa-mount');
-var request = require('superagent-promise');
-var React   = require('react');
-var _       = require('lodash');
-var server  = koa();
+var static   = require('koa-static');
+var router   = require('koa-router');
+var mount    = require('koa-mount');
+var request  = require('superagent-promise');
+var React    = require('react');
+var _        = require('lodash');
+var server   = koa();
 
-var StaticPage = React.createFactory(
-  require('./src/components/pages/StaticPage.jsx')
-);
+var Template = React.createFactory(require('./src/components/Template.jsx'));
 
 var LandingPage = React.createFactory(
   require('./src/components/pages/LandingPage.jsx')
 );
 
-var apiUrl = process.env.API_URL || 'http://localhost:8000';
+var apiUrl = process.env.API_URL || 'localhost:8000';
 
 server.use(static('build/assets'));
 server.use(mount('/lp', static('build/assets')));
@@ -30,10 +28,8 @@ AppRouter.get('/lp/:name', function *() {
   var apiResponse = yield request.get(path).end()
 
   if (apiResponse.body.page) {
-    this.body = React.renderToString(StaticPage({
-      page:       apiResponse.body.page,
-      pageClass:  LandingPage
-    }));
+    var page = LandingPage({ page: apiResponse.body.page });
+    this.body = React.renderToString(Template({}, page));
   }
 });
 
