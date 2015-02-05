@@ -21,6 +21,7 @@ var LandingPage = React.createFactory(
 var apiUrl = process.env.API_URL || 'http://localhost:8000';
 
 server.use(static('build/assets'));
+server.use(mount('/lp', static('build/assets')));
 
 var AppRouter = new router();
 
