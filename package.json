@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "node --harmony ./index.js",
-    "test": "mocha --check-leaks --recursive test/**/*-test.*",
-    "postinstall": "gulp build:production"
+    "test": "mocha --check-leaks --recursive test/**/*-test.*"
   },
   "browser": {
     "jsdom": false
