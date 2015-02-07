@@ -8,7 +8,7 @@
     "url": "https://github.com/neezer/gs-web.git"
   },
   "scripts": {
-    "start": "node --harmony ./index.js",
+    "start": "node --harmony ./server.js",
     "test": "mocha --check-leaks --recursive test/**/*-test.*"
   },
   "browser": {

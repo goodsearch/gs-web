@@ -33,6 +33,6 @@ module.exports = {
   },
 
   nodemon: {
-    script: './index.js'
+    script: './server.js'
   }
 };
