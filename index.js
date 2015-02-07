@@ -35,3 +35,8 @@ AppRouter.get('/lp/:name', function *() {
 
 server.use(mount('/', AppRouter.middleware()));
 server.listen(process.env.PORT || 8001);
+
+// digestable bits for admin
+module.exports.blockSelector = require('./src/components/blocks/blockSelector.js');
+module.exports.HeroBlock = require('./src/components/blocks/HeroBlock.jsx');
+module.exports.ListBlock = require('./src/components/blocks/ListBlock.jsx');
