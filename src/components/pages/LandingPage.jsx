@@ -14,8 +14,8 @@ var LandingPage = React.createClass({
       var blockEl = blockSelector(block.blockType);
       var id = block.blockType + this.props.page.blocks.indexOf(block);
 
-      return React.createElement(blockEl.element, {
-        variant:    blockEl.variant,
+      return React.createElement(blockEl, {
+        variant:    block.blockVariant,
         data:       block.data,
         key:        id
       });
