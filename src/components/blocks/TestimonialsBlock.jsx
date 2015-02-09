@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require("react");
+var _     = require('lodash');
 
 var ItemWrapper = React.createClass({
   render: function() {
