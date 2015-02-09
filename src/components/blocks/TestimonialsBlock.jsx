@@ -1,32 +1,31 @@
-var React = require('react');
-var _     = require('lodash');
+"use strict";
 
-var ListItemWrapper = React.createClass({
+var React = require("react");
+
+var ItemWrapper = React.createClass({
   render: function() {
     return <li>{this.props.item.copy}</li>;
   }
 });
 
-var ListBlock = React.createClass({
+module.exports = React.createClass({
+  displayName: "TestimonialsBlock",
+
   getDefaultProps: function() {
     return {
-      classNames: ['admin', 'block', 'list']
+      classNames: ['block', 'testimonials']
     };
   },
 
   render: function() {
-    var self = this;
-
     return (
       <div className={this.props.classNames.join(' ')}>
         <ul>
           {_.map(this.props.data, function(item) {
-            return <ListItemWrapper key={self.props.data.indexOf(item)} item={item} />;
+            return <ItemWrapper key={self.props.data.indexOf(item)} item={item} />;
           })}
         </ul>
       </div>
     );
   }
 });
-
-module.exports = ListBlock;
