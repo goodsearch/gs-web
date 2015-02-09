@@ -5,7 +5,13 @@ var _     = require('lodash');
 
 var ItemWrapper = React.createClass({
   render: function() {
-    return <li>{this.props.item.copy}</li>;
+    return (
+      <li>
+        <img src={this.props.item.media} />
+        <span>{this.props.item.attribution}</span>
+        <p>{this.props.item.copy}</p>
+      </li>
+    );
   }
 });
 
