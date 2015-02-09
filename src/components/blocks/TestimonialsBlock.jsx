@@ -23,8 +23,8 @@ module.exports = React.createClass({
       <div className={this.props.classNames.join(' ')}>
         <ul>
           {_.map(this.props.data, function(item) {
-            return <ItemWrapper key={self.props.data.indexOf(item)} item={item} />;
-          })}
+            return <ItemWrapper key={this.props.data.indexOf(item)} item={item} />;
+          }.bind(this))}
         </ul>
       </div>
     );
