@@ -2,6 +2,7 @@ san-marino   = #446cb3
 madison      = #2c3e50
 humming-bird = #c5eff7
 monarch      = #f77a26
+white-smoke  = #ececec
 
 .basic
   font-family 'Open Sans', sans-serif
@@ -55,6 +56,7 @@ monarch      = #f77a26
       display flex
       flex-flow row
       counter-reset list-counter
+      padding 3rem 0
 
       li
         flex 1
@@ -84,4 +86,34 @@ monarch      = #f77a26
           line-height 50px
 
   .testimonials
-    background blue
+    background white-smoke
+
+    > div
+      max-width 1000px
+      margin 0 auto
+      text-align center
+      padding 3rem 0
+
+    li
+      display flex
+      flex-flow column wrap
+
+      > img
+        flex 0 0 auto
+        order 1
+        border-radius 50%
+
+      > p
+        order 2
+        flex 1 auto
+        padding 0 3rem
+        line-height 1.5rem
+
+      > span
+        order 3
+        flex 1 auto
+        display block
+        margin 1rem 0
+
+      & + li
+        margin-top 3rem

@@ -27,11 +27,13 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className={this.props.classNames.join(' ')}>
-        <ul>
-          {_.map(this.props.data, function(item) {
-            return <ItemWrapper key={this.props.data.indexOf(item)} item={item} />;
-          }.bind(this))}
-        </ul>
+        <div>
+          <ul>
+            {_.map(this.props.data, function(item) {
+              return <ItemWrapper key={this.props.data.indexOf(item)} item={item} />;
+            }.bind(this))}
+          </ul>
+        </div>
       </div>
     );
   }
