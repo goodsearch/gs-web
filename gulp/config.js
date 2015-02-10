@@ -14,7 +14,7 @@ module.exports = {
   },
 
   stylus: {
-    src:       [src + '/styles/*.styl'],
+    src:       [src + '/styles/*.styl', src + '/styles/reset.css'],
     dest:      dest + '/css',
     settings:  {
       sourceComments:  'map',
@@ -29,7 +29,8 @@ module.exports = {
   },
 
   browserSync: {
-    proxy: 'localhost:8001'
+    proxy: 'localhost:8001',
+    open: false
   },
 
   nodemon: {

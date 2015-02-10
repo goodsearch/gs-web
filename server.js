@@ -18,8 +18,17 @@ var LandingPage = React.createFactory(
 
 var apiUrl = process.env.API_URL || 'localhost:8000';
 
-server.use(static('build/assets'));
-server.use(mount('/lp', static('build/assets')));
+if (process.env.NODE_ENV === 'development') {
+  server.use(static('build/css'));
+  server.use(static('build/js'));
+  server.use(static('build/images'));
+  server.use(mount('/lp', static('build/css')));
+  server.use(mount('/lp', static('build/js')));
+  server.use(mount('/lp', static('build/images')));
+} else {
+  server.use(static('build/assets'));
+  server.use(mount('/lp', static('build/assets')));
+}
 
 var AppRouter = new router();
 
