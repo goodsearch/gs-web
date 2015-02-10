@@ -1,9 +1,7 @@
-require('../../testdom.js')();
-// var render    = require('../../render.js');
-var React     = require('react/addons');
-var assert    = require('better-assert');
-var TestUtils = React.addons.TestUtils;
-var clearDOM  = require('../../clearDOM.js');
+var t         = require('../../react-test-helper.js');
+var React     = require('react');
+
+// SUT
 var HeroBlock = require('../../../src/components/blocks/HeroBlock.jsx');
 
 describe('HeroBlock component', function() {
@@ -17,14 +15,12 @@ describe('HeroBlock component', function() {
       ctaCopy:      "ctaCopy"
     };
 
-    this.component = TestUtils.renderIntoDocument(<HeroBlock data={blockData} />);
+    this.component = t.utils.renderIntoDocument(<HeroBlock data={blockData} />);
   });
 
-  afterEach(function(done) {
-    clearDOM(document.body, done);
-  });
+  afterEach(t.clearDOM);
 
   it('containing div should have the classes [block, hero]', function() {
-    assert('block hero' === this.component.getDOMNode().className);
+    t.assert('block hero' === this.component.getDOMNode().className);
   });
 });
