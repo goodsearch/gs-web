@@ -7,6 +7,7 @@ require.extensions['.jsx'] = function(module, filename) {
   var content  = fs.readFileSync(filename, 'utf8');
   var compiled = ReactTools.transform(content, { harmony: true });
 
-  // module._compile is not mentioned in the Node docs, what is it? And why is it private-ish?
+  // module._compile is not mentioned in the Node docs, what is it? And why is
+  // it private-ish?
   return module._compile(compiled, filename);
 };

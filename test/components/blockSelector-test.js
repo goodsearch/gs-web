@@ -6,19 +6,19 @@ var TestimonialsBlock = require('../../src/components/blocks/TestimonialsBlock.j
 var SocialButtonsBlock = require('../../src/components/blocks/SocialButtonsBlock.jsx');
 
 describe('blockSelector', function() {
-  it('returns a HeroBlock when given "hero"', function() {
+  it('when given "hero" returns a HeroBlock', function() {
     assert(HeroBlock == blockSelector('hero'));
   });
 
-  it('returns a ListBlock when given "list"', function() {
+  it('when given "list" returns a ListBlock', function() {
     assert(ListBlock == blockSelector('list'));
   });
 
-  it('returns a TestimonialsBlock when given "testimonials"', function() {
+  it('when given "testimonials" returns a TestimonialsBlock', function() {
     assert(TestimonialsBlock == blockSelector('testimonials'));
   });
 
-  it('returns a SocialButtonsBlock when given "social-buttons"', function() {
+  it('when given "social-buttons" returns a SocialButtonsBlock', function() {
     assert(SocialButtonsBlock == blockSelector('social-buttons'));
   });
 });

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node --harmony ./server.js",
-    "test": "mocha --check-leaks --recursive test/**/*-test.*"
+    "test": "mocha --check-leaks test/**/*-test.*"
   },
   "browser": {
     "jsdom": false

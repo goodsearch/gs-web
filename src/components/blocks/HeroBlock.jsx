@@ -1,6 +1,10 @@
+'use strict';
+
 var React = require('react');
 
-var HeroBlock = React.createClass({
+module.exports = React.createClass({
+  displayName: 'HeroBlock',
+
   getDefaultProps: function() {
     return {
       classNames: ['block', 'hero']
@@ -23,6 +27,3 @@ var HeroBlock = React.createClass({
     );
   }
 });
-
-module.exports = HeroBlock;
-
