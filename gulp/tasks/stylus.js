@@ -6,15 +6,22 @@ var gulpif       = require('gulp-if');
 
 var production = process.env.NODE_ENV === 'production';
 
-if (!production) {
+if (production) {
+  gulp.task('stylus', function() {
+    return gulp.src(config.src)
+      .pipe(stylus(config.settings))
+      .pipe(autoprefixer({ browsers: ['last 2 version'] }))
+      .pipe(gulp.dest(config.dest));
+  });
+} else {
   var browserSync = require('browser-sync');
   var reload      = browserSync.reload;
-}
 
-gulp.task('stylus', function() {
-  return gulp.src(config.src)
-    .pipe(stylus(config.settings))
-    .pipe(autoprefixer({ browsers: ['last 2 version'] }))
-    .pipe(gulp.dest(config.dest))
-    .pipe(gulpif(!production, reload({ stream: true })));
-});
+  gulp.task('stylus', function() {
+    return gulp.src(config.src)
+      .pipe(stylus(config.settings))
+      .pipe(autoprefixer({ browsers: ['last 2 version'] }))
+      .pipe(gulp.dest(config.dest))
+      .pipe(reload({ stream: true }));
+  });
+}
