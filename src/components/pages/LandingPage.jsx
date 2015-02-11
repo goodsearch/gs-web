@@ -14,11 +14,13 @@ var LandingPage = React.createClass({
       var blockEl = blockSelector(block.blockType);
       var id = block.blockType + this.props.page.blocks.indexOf(block);
 
-      return React.createElement(blockEl, {
-        variant:    block.blockVariant,
-        data:       block.data,
-        key:        id
-      });
+      if (blockEl) {
+        return React.createElement(blockEl, {
+          variant:    block.blockVariant,
+          data:       block.data,
+          key:        id
+        });
+      }
     }.bind(this));
 
     return (
