@@ -10,7 +10,7 @@ var ListItemWrapper = React.createClass({
 var ListBlock = React.createClass({
   getDefaultProps: function() {
     return {
-      classNames: ['admin', 'block', 'list']
+      classNames: ['block', 'list']
     };
   },
 
