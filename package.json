@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node --harmony ./server.js",
-    "postinstall": "[[ $NODE_ENV == 'production' ]] && gulp build:production",
+    "postinstall": "./bin/build_production.sh",
     "test": "mocha"
   },
   "browser": {
